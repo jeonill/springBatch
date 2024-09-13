@@ -48,4 +48,36 @@ public class MainController {
         jobLauncher.run(jobRegistry.getJob("SecondJob"), jobParameter);
         return "ok";
     }
+
+    /**
+     * 엑셀에서 데이터를 받아온다
+     * @param value
+     * @return
+     * @throws Exception
+     */
+    @GetMapping("/fourth")
+    public String fourthApi(@RequestParam("value") String value) throws Exception{
+        JobParameters jobParameter = new JobParametersBuilder()
+                .addString("date",value)
+                .toJobParameters();
+
+        jobLauncher.run(jobRegistry.getJob("fourthJob"), jobParameter);
+        return "ok";
+    }
+
+    /**
+     * 데이터 -> 엑셀파일
+     * @param value
+     * @return
+     * @throws Exception
+     */
+    @GetMapping("/fifth")
+    public String fifthApi(@RequestParam("value") String value) throws Exception{
+        JobParameters jobParameter = new JobParametersBuilder()
+                .addString("date",value)
+                .toJobParameters();
+
+        jobLauncher.run(jobRegistry.getJob("fifthJob"), jobParameter);
+        return "ok";
+    }
 }
