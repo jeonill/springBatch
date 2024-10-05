@@ -80,4 +80,20 @@ public class MainController {
         jobLauncher.run(jobRegistry.getJob("fifthJob"), jobParameter);
         return "ok";
     }
+
+    /**
+     * job실행시간 비교
+     * @param value
+     * @return
+     * @throws Exception
+     */
+    @GetMapping("/sixth")
+    public String sixthApi(@RequestParam("value") String value) throws Exception{
+        JobParameters jobParameter = new JobParametersBuilder()
+                .addString("date",value)
+                .toJobParameters();
+
+        jobLauncher.run(jobRegistry.getJob("sixthJob"), jobParameter);
+        return "ok";
+    }
 }

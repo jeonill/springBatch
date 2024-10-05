@@ -18,7 +18,7 @@ public class FirstSchedule {
     private final JobLauncher jobLauncher;
     private final JobRegistry jobRegistry;
 
-    @Scheduled(cron = "10 * * * * *", zone = "Asia/Seoul")//스캐줄려를 이용해 원하는 시간에 정기적으로 실행
+    //@Scheduled(cron = "10 * * * * *", zone = "Asia/Seoul")//스캐줄려를 이용해 원하는 시간에 정기적으로 실행
     public void runFirstJob() throws Exception{
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-hh-mm-ss");

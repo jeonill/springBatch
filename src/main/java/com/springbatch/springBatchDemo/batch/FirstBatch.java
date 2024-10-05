@@ -15,6 +15,7 @@ import org.springframework.batch.item.data.RepositoryItemReader;
 import org.springframework.batch.item.data.RepositoryItemWriter;
 import org.springframework.batch.item.data.builder.RepositoryItemReaderBuilder;
 import org.springframework.batch.item.data.builder.RepositoryItemWriterBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.Sort;
@@ -24,7 +25,6 @@ import org.springframework.transaction.PlatformTransactionManager;
 import java.util.Map;
 
 @Configuration
-
 public class FirstBatch {
 
     private final JobRepository jobRepository;
@@ -32,6 +32,7 @@ public class FirstBatch {
     private final BeforeRepository beforeRepository;
     private final AfterRepository afterRepository;
 
+    @Autowired
     public FirstBatch(JobRepository jobRepository, PlatformTransactionManager platformTransactionManager, BeforeRepository beforeRepository, AfterRepository afterRepository) {
         this.jobRepository = jobRepository;
         this.platformTransactionManager = platformTransactionManager;
