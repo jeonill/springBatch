@@ -96,4 +96,20 @@ public class MainController {
         jobLauncher.run(jobRegistry.getJob("sixthJob"), jobParameter);
         return "ok";
     }
+
+    /**
+     * batch 병렬처리
+     * @param value
+     * @return
+     * @throws Exception
+     */
+    @GetMapping("/seven")
+    public String sevenApi(@RequestParam("value") String value) throws Exception{
+        JobParameters jobParameter = new JobParametersBuilder()
+                .addString("date",value)
+                .toJobParameters();
+
+        jobLauncher.run(jobRegistry.getJob("sevenJob"), jobParameter);
+        return "ok";
+    }
 }
